@@ -23,7 +23,7 @@
           <el-col :span="10">
           </el-col>
           <el-col :span="5">
-            <div class="text">专注仿真分析，加速制造创新</div>
+            <div class="headerText">专注仿真分析，加速制造创新</div>
           </el-col>
           <el-col :span="1">
           </el-col>
@@ -47,13 +47,18 @@
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+// import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const activeIndex = ref('1')
 const handleSelect = (key, keyPath) => {
   console.log(key, keyPath)
+  router.push({ path: '/' })
 }
 </script>
 
@@ -65,10 +70,10 @@ const handleSelect = (key, keyPath) => {
 .header {
   margin-top: 15px;
   line-height: 60px;
+}
 
-  .text {
-    text-align: right
-  }
+.headerText {
+  text-align: right
 }
 
 .logo {
