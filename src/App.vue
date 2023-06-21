@@ -1,12 +1,12 @@
 <template>
   <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false" @select="handleSelect">
-    <img class="logo" src="@/assets/logo.jpg" />
+    <img class="logo" src="@/assets/logo.jpg" @click="toHome" />
     <div class="flex-grow" />
-    <el-menu-item index="1">产品</el-menu-item>
-    <el-menu-item index="2">新闻</el-menu-item>
-    <el-menu-item index="3">解决方案</el-menu-item>
-    <el-menu-item index="4">咨询与服务</el-menu-item>
-    <el-menu-item index="5">关于信工诚</el-menu-item>
+    <el-menu-item index="/Products">产品</el-menu-item>
+    <el-menu-item index="/News">新闻</el-menu-item>
+    <el-menu-item index="/Solutions">解决方案</el-menu-item>
+    <el-menu-item index="/Services">咨询与服务</el-menu-item>
+    <el-menu-item index="/About">关于信工诚</el-menu-item>
   </el-menu>
   <div class="common-layout">
     <el-container>
@@ -33,14 +33,21 @@
         <RouterView />
       </el-main>
       <el-footer> <el-row class="row-bg" justify="center">
-          微信公众号<img class="QRcode" src="@/assets/QRcode.jpg" />
+          <div class="weChat">微信公众号:</div>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <img class="QRcode" src="@/assets/QRcode.jpg" />
         </el-row>
+        <p>&nbsp;</p>
         <el-row class="row-bg" justify="center">
-          版权所有 2009-2021 北京信工诚科技有限公司 京ICP备10217026 京公网安备 11010802036411号
+          <div class="text">版权所有 2009-2021 北京信工诚科技有限公司 京ICP备10217026 京公网安备 11010802036411号</div>
         </el-row>
+        <p>&nbsp;</p>
         <el-row class="row-bg" justify="center">
-          北京市海淀区绿地中央广场林风二路38号院3号楼411室 邮编：100085 电话：010-62640357 传真：010-62646681 电子邮件地址：15699735015@126.com
+          <div class="text">
+            北京市海淀区绿地中央广场林风二路38号院3号楼411室 邮编：100085 电话：010-62640357 传真：010-62646681 电子邮件地址：15699735015@126.com
+          </div>
         </el-row>
+        <p>&nbsp;</p>
       </el-footer>
     </el-container>
   </div>
@@ -55,14 +62,18 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const activeIndex = ref('1')
+const toHome = () => {
+  router.push({ path: '/' })
+}
+
+const activeIndex = ref('/')
 const handleSelect = (key, keyPath) => {
   console.log(key, keyPath)
-  router.push({ path: '/' })
+  router.push({ path: key })
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 .flex-grow {
   flex-grow: 1;
 }
@@ -80,7 +91,21 @@ const handleSelect = (key, keyPath) => {
   height: 57.6px;
 }
 
+.logo:hover {
+  cursor: pointer
+}
+
+.weChat {
+  font-size: 16px;
+  line-height: 70px;
+  color: #999
+}
+
 .QRcode {
-  height: 4em;
+  height: 70px;
+}
+
+.text {
+  font-size: 12px
 }
 </style>

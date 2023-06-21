@@ -1,3 +1,4 @@
+<!-- 产品 -->
 <template>
   <el-row :gutter="20">
     <el-col :span="1">
@@ -6,33 +7,7 @@
       <el-card class="box-card-left">
         <template #header>
           <div class="card-header">
-            <span>新闻</span>
-            <el-button class="button" text>
-              <el-icon>
-                <DArrowRight />
-              </el-icon>
-            </el-button>
-          </div>
-        </template>
-        <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-      </el-card>
-      <el-card class="box-card-left2">
-        <template #header>
-          <div class="card-header">
-            <span>技术与培训</span>
-            <el-button class="button" text>
-              <el-icon>
-                <DArrowRight />
-              </el-icon>
-            </el-button>
-          </div>
-        </template>
-        <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-      </el-card>
-      <el-card class="box-card-left2">
-        <template #header>
-          <div class="card-header">
-            <span>会议活动</span>
+            <span>CAE 仿真与分析工程</span>
             <el-button class="button" text>
               <el-icon>
                 <DArrowRight />
@@ -44,7 +19,7 @@
       </el-card>
     </el-col>
     <el-col :span="10">
-      <el-card class="box-card-main">
+      <!-- <el-card class="box-card-main">
         <template #header>
           <div class="card-header">
             <span>产品</span>
@@ -56,7 +31,7 @@
           </div>
         </template>
         <div v-for="o in 4" :key="o" class="text item">{{ 'List item ' + o }}</div>
-      </el-card>
+      </el-card> -->
     </el-col>
     <el-col :span="6">
       <el-card class="box-card-right">
@@ -115,19 +90,15 @@
 
 .box-card-left {
   // width: 20em;
+  height: 40em;
   margin: auto;
-}
-.box-card-left2 {
-  // width: 20em;
-  margin: auto;
-  margin-top: 50px;
 }
 
-.box-card-main {
-  // width: 30em;
-  height: 25em;
-  margin: auto;
-}
+// .box-card-main {
+//   width: 30em;
+//   height: 25em;
+//   margin: auto;
+// }
 
 
 .box-card-right {
